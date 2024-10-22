@@ -1,0 +1,16 @@
+Define a problem:
+  We want to improve upon a paper on Neural Cloth Simulation such that we can 
+  relax one of its limitations: for new garments or bodies, methodologies needs to be applied again to obtain the corresponding model.
+
+
+Brief history of prior work
+  
+in-context learmimg
+What you want to achieve:
+  Experiment 1: compare the resource (time, and memeory?) required to fine-tune vs re-train the model for different garments
+  Experiment 2: how far can we generalize the model (T-shirt --> long-sleeve --> hoodie?)
+
+  Experiment 3: Instead of generalizing through cloth, use meta-learning to fine-tune cloth dynamics between timesteps...? 
+
+
+  
