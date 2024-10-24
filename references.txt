@@ -1,0 +1,20 @@
+Neural Cloth Simulation
+  Link: https://export.arxiv.org/pdf/2212.11220v1.pdf
+  Note: This is the paper that would provide the basis of our project, as our project aims to relax one of its limitations
+
+Model-Agonistic Meta-Learning for Fast Adaptation of Deep Networks
+  Link: http://proceedings.mlr.press/v70/finn17a/finn17a.pdf
+  Note: Provides a general concept and algorithm of meta-learning. 
+        Gives example of supervised learning (regression & classification) and reinforcement learning.
+
+On First-Order Meta-Learning Algorithms
+  Link: https://arxiv.org/abs/1803.02999
+  Note: Shows Hessians are often not required for Meta-Learning and using Jacobian is enough, also presents algorithm called "Reptile"
+
+Unsupervised Learning via Meta-Learning
+  Link: https://arxiv.org/pdf/1810.02334
+  Note: Probably most useful meta-learning paper listed here for our project as NCS uses unsuperivsed training method. 
+
+
+
+
