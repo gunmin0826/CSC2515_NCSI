@@ -13,4 +13,9 @@ What you want to achieve:
   Experiment 3: Instead of generalizing through cloth, use meta-learning to fine-tune cloth dynamics between timesteps...? 
 
 
-  
+WHAT WE NEED TO GENERALIZE ACROSS CLOTHS
+Problem: dimensions of different garments are different (probably) - point cloud of scarf vs shirt will look different
+General approach: construct representation that can handle multiple types of clothing
+
+Ideas for approach: the issue is that different garments will have different dimensions, and the NN requires same size inputs. One
+approach is to standardize the vector size to the largest size garment, and pad the smaller garment vectors with 0s. 
