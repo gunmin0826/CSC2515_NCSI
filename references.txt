@@ -14,7 +14,7 @@ On First-Order Meta-Learning Algorithms
 Unsupervised Learning via Meta-Learning
   Link: https://arxiv.org/pdf/1810.02334
   Note: Probably most useful meta-learning paper listed here for our project as NCS uses unsuperivsed training method. 
+------------------------------------------------------------------------------------------------------------------------------------
 
-
-
-
+Mixamo Characters Uploader & Animations Downloader
+  Link: https://github.com/gnuton/mixamo_anims_downloader
