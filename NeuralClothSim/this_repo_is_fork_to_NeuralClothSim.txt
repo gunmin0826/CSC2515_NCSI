@@ -1,0 +1,4 @@
+This directory 'NerualClothSim' is basically cloned from: https://github.com/hbertiche/NeuralClothSim/tree/main
+
+We will list our own code and file below:
+  motions
