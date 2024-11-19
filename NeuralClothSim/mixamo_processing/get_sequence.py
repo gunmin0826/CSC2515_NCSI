@@ -3,11 +3,16 @@ import sys
 import bpy
 import numpy as np
 
+# print("AAAAA")
 sys.path.append(os.path.abspath(os.path.dirname(__file__)))
+# print("BBBBBB")
 from bpy_utils import init_scene, get_keyframes
 
 
 def main(file, dst):
+    print(f"get_sequence::file:{file}")
+    print(f"get_sequence::dst:{dst}")
+    # return 
     assert os.path.isfile(file), f"File does not exist: {file}"
     assert os.path.isdir(
         os.path.dirname(dst)
@@ -51,4 +56,6 @@ def main(file, dst):
 
 
 if __name__ == "__main__":
-    main(file="path_to_fbx_file.fbx", dst="path_to_output.npz")
+    # main(file="path_to_fbx_file.fbx", dst="path_to_output.npz") # original script
+    # main(file="../motions/2 People Shaking Hands Part 1 -  Female.fbx", dst="../data/mixamo/2 People Shaking Hands Part 1 -  Female.npz") # richard's
+    main(file = sys.argv[3], dst = sys.argv[4])
