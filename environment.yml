@@ -1,0 +1,13 @@
+name: ncs
+dependencies:
+  - python=3.10.0
+  - pip:
+    - bpy
+    - pybotics
+    - treelib
+  - numpy
+  - pandas
+  - tensorflow
+  - scipy
+
+  
