@@ -67,7 +67,7 @@ def graph_laplacian(graph):
 
 @tf.function
 def face_normals(vertices, faces, normalized=True):
-    input_shape = vertices.get_shape()
+    input_shape = vertices.shape
     vertices = tf.reshape(vertices, (-1, *input_shape[-2:]))
     v01 = tf.gather(vertices, faces[:, 1], axis=1) - tf.gather(
         vertices, faces[:, 0], axis=1
@@ -84,7 +84,7 @@ def face_normals(vertices, faces, normalized=True):
 
 @tf.function
 def vertex_normals(vertices, faces):
-    input_shape = vertices.get_shape()
+    input_shape = vertices.shape
     batch_size = tf.reduce_prod(input_shape[:-2] or [1])
     vertices = tf.reshape(vertices, (-1, *input_shape[-2:]))
     # Compute face normals
@@ -92,7 +92,7 @@ def vertex_normals(vertices, faces):
     # Scatter face normals
     faces_batched = tf.stack(
         (
-            tf.tile(tf.range(batch_size)[:, None, None], [1, *faces.get_shape()]),
+            tf.tile(tf.range(batch_size)[:, None, None], [1, *faces.shape]),
             tf.tile(faces[None], [batch_size, 1, 1]),
         ),
         axis=-1,

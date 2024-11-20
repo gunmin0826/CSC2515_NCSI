@@ -4,7 +4,7 @@ from scipy.special import binom
 
 
 def tf_shape(tensor):
-    return [(size or -1) for size in tensor.get_shape()]
+    return [(size or -1) for size in tensor.shape]
 
 
 @tf.function

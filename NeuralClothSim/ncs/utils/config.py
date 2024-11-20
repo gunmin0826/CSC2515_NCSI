@@ -11,7 +11,7 @@ class Config:
             assert os.path.isfile(
                 path_or_dict
             ), "Config class error: JSON config file does not exist."
-            self.name = os.path.basename(os.path.splitext(path_or_dict)[0])
+            self.name = os.path.basename(os.path.splitext(path_or_dict)[0])+'.keras'
             with open(path_or_dict, "r") as f:
                 self.json_dict = json.load(f)
         else:

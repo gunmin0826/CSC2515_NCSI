@@ -1,6 +1,7 @@
 import os
 from utils.tensor import compute_nth_derivative
 import tensorflow as tf
+tf.config.run_functions_eagerly(True)
 from tensorflow.keras.layers import GRU
 from loss.losses import *
 from loss.metrics import *
@@ -47,36 +48,36 @@ class NCS(tf.keras.Model):
     def build_lbs(self):
         self.rot = Rotation(name="Rotation")
         self.skeleton = Skeleton(self.body.joints, name="Skeleton")
-        self.lbs_body = LBS(self.body.blend_weights, trainable=False, name="LBS/Body")
+        self.lbs_body = LBS(self.body.blend_weights, trainable=False, name="LBS_Body")
         self.lbs_cloth = LBS(
             self.garment.blend_weights,
             trainable=self.config.blend_weights_trainable,
-            name="LBS/Cloth",
+            name="LBS_Cloth",
         )
 
     def build_encoder(self):
         self.static_encoder = [
             SkelFlatten(),
-            FullyConnected(64, act=tf.nn.relu, name="stc_enc/fc0"),
-            FullyConnected(128, act=tf.nn.relu, name="stc_enc/fc0"),
-            FullyConnected(256, act=tf.nn.relu, name="stc_enc/fc0"),
-            FullyConnected(512, act=tf.nn.relu, name="stc_enc/fc0"),
+            FullyConnected(64, act=tf.nn.relu, name="stc_enc_fc0"),
+            FullyConnected(128, act=tf.nn.relu, name="stc_enc_fc0"),
+            FullyConnected(256, act=tf.nn.relu, name="stc_enc_fc0"),
+            FullyConnected(512, act=tf.nn.relu, name="stc_enc_fc0"),
         ]
         self.dynamic_encoder = [
-            FullyConnected(32, act=tf.nn.relu, use_bias=False, name="dyn_enc/fc0"),
-            FullyConnected(32, act=tf.nn.relu, use_bias=False, name="dyn_enc/fc1"),
+            FullyConnected(32, act=tf.nn.relu, use_bias=False, name="dyn_enc_fc0"),
+            FullyConnected(32, act=tf.nn.relu, use_bias=False, name="dyn_enc_fc1"),
             SkelFlatten(),
-            FullyConnected(512, act=tf.nn.relu, use_bias=False, name="dyn_enc/fc2"),
-            FullyConnected(512, act=tf.nn.relu, use_bias=False, name="dyn_enc/fc3"),
-            GRU(512, use_bias=False, return_sequences=True, name="dyn_enc/gru"),
+            FullyConnected(512, act=tf.nn.relu, use_bias=False, name="dyn_enc_fc2"),
+            FullyConnected(512, act=tf.nn.relu, use_bias=False, name="dyn_enc_fc3"),
+            GRU(512, use_bias=False, return_sequences=True, name="dyn_enc_gru"),
         ]
 
     def build_decoder(self):
         self.decoder = [
-            FullyConnected(512, act=tf.nn.relu, name="dec/fc0"),
-            FullyConnected(512, act=tf.nn.relu, name="dec/fc1"),
-            FullyConnected(512, act=tf.nn.relu, name="dec/fc2"),
-            PSD(self.garment.num_verts, name="dec/PSD"),
+            FullyConnected(512, act=tf.nn.relu, name="dec_fc0"),
+            FullyConnected(512, act=tf.nn.relu, name="dec_fc1"),
+            FullyConnected(512, act=tf.nn.relu, name="dec_fc2"),
+            PSD(self.garment.num_verts, name="dec_PSD"),
         ]
 
     def build_losses_and_metrics(self):
@@ -101,7 +102,7 @@ class NCS(tf.keras.Model):
         self.bending_loss = BendingLoss(self.garment)
         self.bending_metric = MyMetric(name="Bending")
         # Collision
-        self.collision = Collision(self.body, use_ray=False, name="Collision")
+        self.collision = Collision(self.body, use_ray=True, name="Collision")
         self.collision_loss = CollisionLoss(
             self.body, collision_threshold=self.config.loss.collision_threshold
         )

@@ -1,7 +1,7 @@
 {
     "experiment": {
         "epochs": 5000,
-        "batch_size": 32,
+        "batch_size": 512,
         "learning_rate": 1e-3,
         "temporal_window_size": 0.5,
         "reflect_probability": 0.0,
@@ -19,8 +19,8 @@
     },
     "data": {
         "dataset": "mixamo",
-        "train": "toy.txt",
-        "validation": "toy.txt",
+        "train":  "train.txt",
+        "validation": "val.txt",
         "test": "toy.txt",
         "fps": 30
     },

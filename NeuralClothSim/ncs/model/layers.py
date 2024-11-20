@@ -111,7 +111,7 @@ class Rotation(Layer):
 
 class Collision(Layer):
     def __init__(self, body, use_ray, **kwargs):
-        super().__init__(trainable=False, dynamic=True, **kwargs)
+        super().__init__(trainable=False, **kwargs)
         self.collision_vertices = tf.constant(body.collision_vertices)
         self.use_ray = use_ray
         self.run_sample = lambda elem: cKDTree(elem[1]).query(elem[0], workers=-1)[1]
