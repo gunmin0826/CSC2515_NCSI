@@ -18,3 +18,9 @@ Unsupervised Learning via Meta-Learning
 
 Mixamo Characters Uploader & Animations Downloader
   Link: https://github.com/gnuton/mixamo_anims_downloader
+
+
+
+In Scott's Desktop, 
+  folder: mnt/Samsung2/ncs
+  environment: 
