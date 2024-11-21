@@ -32,6 +32,7 @@ class Data(Sequence):
 
     # Read names of sequence files from a txt
     def read_txt(self):
+        print(DATA_DIR)
         with open(self.txt, "r") as f:
             self.sequences = [
                 os.path.join(DATA_DIR, self.config.data.dataset, line.replace("\n", ""))

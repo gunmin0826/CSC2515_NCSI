@@ -1,0 +1,7 @@
+Running_Right_With_Torch.npz
+Walking_With_An_Aimed_Pistol.npz
+Running_Backwards_With_Axe.npz
+Running_Down_A_Set_Of_Stairs.npz
+Walking_Forwards.npz
+Walking_Forward_With_Axe.npz
+Running_While_Carrying_Someone.npz
